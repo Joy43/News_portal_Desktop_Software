@@ -1,7 +1,7 @@
 import { useAppSelector } from '@renderer/redux/hook'
 import { useState } from 'react'
 import HomeTopbar from './HomeTopbar'
-import ChatSection from '../../(tabs)/Settings/ChatSection'
+
 import HomeNews from './HomeNews'
 
 
