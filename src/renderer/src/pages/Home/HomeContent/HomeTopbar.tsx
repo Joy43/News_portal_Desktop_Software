@@ -26,11 +26,10 @@ const HomeTopbar = () => {
   }
 
   return (
-    <div>
-    
-      <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-b border-slate-700 shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-20">
+    <div className="w-full">
+      <div className="w-full z-40 bg-slate-900/30 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl mt-4 drag-region">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 no-drag">
+          <div className="flex items-center justify-between h-16">
            
             <div className="flex items-center gap-2 sm:gap-4">
           
@@ -104,11 +103,7 @@ const HomeTopbar = () => {
                 )}
 
                 {/* Menu Button - Always visible */}
-              <button className="p-2 rounded-lg hover:bg-white/10 transition-colors relative">
-                    <Bell className="w-5 h-5 sm:w-6 sm:h-6 text-slate-400 hover:text-white transition-colors" />
-                    {/* Optional notification badge */}
-                    <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
-                  </button>
+            
               </div>
 
               {/* Mobile Sign In Button - Only show when NOT logged in */}
@@ -126,9 +121,6 @@ const HomeTopbar = () => {
           </div>
         </div>
       </div>
-
-     
-      <div className="h-16 md:h-20"></div>
 
     </div>
   )

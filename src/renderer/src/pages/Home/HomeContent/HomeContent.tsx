@@ -1,25 +1,14 @@
-import { useAppSelector } from '@renderer/redux/hook'
-import { useState } from 'react'
 import HomeTopbar from './HomeTopbar'
-
 import HomeNews from './HomeNews'
 
-
-const HomeContent = () => {
-  const user = useAppSelector((state) => state?.auth?.user)
-  const [signInOpen] = useState(false)
-  console.log(signInOpen)
-  console.log(user);
+const HomeContent = () => {  
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-8">
-      {/* Main Content */}
-      <div className="ml-32">
-        {/*------- Header -----------------*/}
-        <HomeTopbar />
-        {/* Charts Section */}
-        {/* <ChatSection/> */}
-        <HomeNews/>
-      </div>
+    <div className="flex flex-col gap-8 w-full max-w-7xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700">
+      {/*------- Header -----------------*/}
+      <HomeTopbar />
+      
+      {/* Content Section */}
+      <HomeNews />
     </div>
   )
 }

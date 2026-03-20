@@ -23,6 +23,7 @@ if (process.contextIsolated) {
 
 
 contextBridge.exposeInMainWorld('electronAPI', {
-  getDeviceInfo: () => ipcRenderer.invoke('get-device-info')
+  getDeviceInfo: () => ipcRenderer.invoke('get-device-info'),
+  scanVideos: () => ipcRenderer.invoke('scan-videos')
 });
 

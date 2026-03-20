@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import { Menu, Search, User } from 'lucide-react'
 
 const newsData = {
   mainStory: {
@@ -157,7 +155,6 @@ const newsData = {
 }
 
 const HomeNews = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const currentDate = new Date().toLocaleDateString('en-US', {
     weekday: 'long',
     year: 'numeric',
@@ -176,7 +173,7 @@ const HomeNews = () => {
       </div>
 
       {/* Navigation Menu */}
-      <div className="border-b text-center border-gray-300 sticky top-0 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 z-10">
+      <div className="border-b text-center border-white/10 sticky top-0 bg-slate-900/60 backdrop-blur-2xl z-10 transition-colors">
         <div className="max-w-7xl mx-auto px-4">
           <nav className="flex items-center gap-6 py-2 overflow-x-auto text-sm">
             {newsData.categories.map((category, index) => (
@@ -191,9 +188,9 @@ const HomeNews = () => {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Top Story Section */}
-        <div className="grid grid-cols-12 gap-6 mb-8 pb-8 border-b border-gray-300">
+        <div className="grid grid-cols-12 gap-6 mb-8 pb-8 border-b border-white/10">
           {/* Main Featured Story */}
-          <div className="col-span-8 border-r border-gray-300 pr-6">
+          <div className="col-span-8 border-r border-white/10 pr-6">
             <img
               src={newsData.mainStory.image}
               alt={newsData.mainStory.title}
@@ -211,7 +208,7 @@ const HomeNews = () => {
           {/* Secondary Stories */}
           <div className="col-span-4 space-y-6">
             {newsData.featuredNews.map((article, index) => (
-              <div key={article.id} className={index === 0 ? 'pb-6 border-b border-gray-300' : ''}>
+              <div key={article.id} className={index === 0 ? 'pb-6 border-b border-white/10' : ''}>
                 {article.image && (
                   <img
                     src={article.image}
@@ -228,7 +225,7 @@ const HomeNews = () => {
         </div>
 
         {/* Video Section */}
-        <div className="mb-8 pb-8 border-b border-gray-300">
+        <div className="mb-8 pb-8 border-b border-white/10">
           <h2 className="font-serif text-2xl font-bold mb-4">Featured Video</h2>
           <div className="grid grid-cols-3 gap-6">
             {newsData.videoStories.map((story) => (
@@ -258,10 +255,10 @@ const HomeNews = () => {
           {[0, 1, 2].map((colIndex) => (
             <div key={colIndex} className="space-y-6">
               {newsData.columnNews
-                .filter((_, index) => index % 3 === colIndex)
-                .map((article, index) => (
-                  <div key={article.id} className="pb-6 border-b border-gray-300">
-                    <span className="text-xs font-bold uppercase tracking-wide">
+                .filter((_, idx) => idx % 3 === colIndex)
+                .map((article) => (
+                  <div key={article.id} className="pb-6 border-b border-white/10">
+                    <span className="text-xs font-bold uppercase tracking-wide text-cyan-400">
                       {article.category}
                     </span>
                     <h3 className="font-serif text-xl font-bold my-2">{article.title}</h3>
@@ -280,15 +277,15 @@ const HomeNews = () => {
                 ))}
 
               {colIndex === 2 && (
-                <div className="bg-gray-100 p-4">
-                  <h4 className="font-bold mb-2 text-sm">Most Popular</h4>
-                  <ol className="space-y-2 text-sm">
+                <div className="bg-slate-900/40 rounded-xl p-6 border border-white/5">
+                  <h4 className="font-bold mb-4 text-sm text-cyan-400 tracking-wider">MOST POPULAR</h4>
+                  <ol className="space-y-3 text-sm">
                     {newsData.trendingArticles.map((article, index) => (
                       <li
                         key={article.id}
                         className={
                           index < newsData.trendingArticles.length - 1
-                            ? 'pb-2 border-b border-gray-300'
+                            ? 'pb-3 border-b border-white/10'
                             : ''
                         }
                       >
@@ -303,8 +300,8 @@ const HomeNews = () => {
         </div>
 
         {/* Opinion Section */}
-        <div className="border-t border-black pt-6 mb-8">
-          <h2 className="font-serif text-3xl font-bold mb-6">Opinion</h2>
+        <div className="border-t border-white/10 pt-6 mb-8">
+          <h2 className="font-serif text-3xl font-bold mb-6 text-white">Opinion</h2>
           <div className="grid grid-cols-2 gap-6">
             <div>
               {newsData.opinionArticles[0].image && (
@@ -325,7 +322,7 @@ const HomeNews = () => {
               {newsData.opinionArticles.slice(1).map((article, index) => (
                 <div
                   key={article.id}
-                  className={index > 0 ? 'pt-4 border-t border-gray-300 mt-4' : ''}
+                  className={index > 0 ? 'pt-4 border-t border-white/10 mt-4' : ''}
                 >
                   <h3 className="font-serif text-2xl font-bold mb-2">{article.title}</h3>
                   <p className="text-gray-300 mb-2">{article.description}</p>
