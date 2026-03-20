@@ -163,21 +163,21 @@ const HomeNews = () => {
   })
 
   return (
-    <div className=" bg-slate-800/40 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50">
+    <div className=" bg-glass-subtle backdrop-blur-xl rounded-2xl p-6 border border-glass-border">
       {/* Main Header */}
-      <div className="border-b border-black">
+      <div className="border-b border-glass-border">
         <div className="max-w-7xl mx-auto px-4 py-4 text-center">
-          <h1 className="font-serif text-6xl font-bold tracking-tight">The News Times</h1>
-          <p className="text-sm text-gray-200 mt-2">{currentDate}</p>
+          <h1 className="font-serif text-6xl font-bold tracking-tight text-text-primary">The News Times</h1>
+          <p className="text-sm text-text-secondary mt-2">{currentDate}</p>
         </div>
       </div>
 
       {/* Navigation Menu */}
-      <div className="border-b text-center border-white/10 sticky top-0 bg-slate-900/60 backdrop-blur-2xl z-10 transition-colors">
+      <div className="border-b text-center border-glass-border sticky top-0 bg-brand-bg/60 backdrop-blur-2xl z-10 transition-colors">
         <div className="max-w-7xl mx-auto px-4">
           <nav className="flex items-center gap-6 py-2 overflow-x-auto text-sm">
             {newsData.categories.map((category, index) => (
-              <a key={index} href="#" className="whitespace-nowrap hover:underline font-semibold">
+              <a key={index} href="#" className="whitespace-nowrap hover:text-brand-primary transition-colors text-text-secondary font-semibold">
                 {category}
               </a>
             ))}
@@ -188,49 +188,49 @@ const HomeNews = () => {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Top Story Section */}
-        <div className="grid grid-cols-12 gap-6 mb-8 pb-8 border-b border-white/10">
+        <div className="grid grid-cols-12 gap-6 mb-8 pb-8 border-b border-glass-border">
           {/* Main Featured Story */}
-          <div className="col-span-8 border-r border-white/10 pr-6">
+          <div className="col-span-8 border-r border-glass-border pr-6">
             <img
               src={newsData.mainStory.image}
               alt={newsData.mainStory.title}
-              className="w-full h-96 object-cover mb-4"
+              className="w-full h-96 object-cover mb-4 rounded-xl border border-glass-border"
             />
-            <h2 className="font-serif text-4xl font-bold mb-3 leading-tight">
+            <h2 className="font-serif text-4xl font-bold mb-3 leading-tight text-text-primary">
               {newsData.mainStory.title}
             </h2>
-            <p className="text-lg text-gray-300 leading-relaxed mb-3">
+            <p className="text-lg text-text-secondary leading-relaxed mb-3">
               {newsData.mainStory.description}
             </p>
-            <p className="text-sm text-gray-400">By {newsData.mainStory.author}</p>
+            <p className="text-sm text-text-muted">By {newsData.mainStory.author}</p>
           </div>
 
           {/* Secondary Stories */}
           <div className="col-span-4 space-y-6">
             {newsData.featuredNews.map((article, index) => (
-              <div key={article.id} className={index === 0 ? 'pb-6 border-b border-white/10' : ''}>
+              <div key={article.id} className={index === 0 ? 'pb-6 border-b border-glass-border' : ''}>
                 {article.image && (
                   <img
                     src={article.image}
                     alt={article.title}
-                    className="w-full h-48 object-cover mb-3"
+                    className="w-full h-48 object-cover mb-3 rounded-xl border border-glass-border"
                   />
                 )}
-                <h3 className="font-serif text-xl font-bold mb-2">{article.title}</h3>
-                <p className="text-sm text-gray-300 mb-2">{article.description}</p>
-                {article.author && <p className="text-xs text-gray-400">By {article.author}</p>}
+                <h3 className="font-serif text-xl font-bold mb-2 text-text-primary">{article.title}</h3>
+                <p className="text-sm text-text-secondary mb-2">{article.description}</p>
+                {article.author && <p className="text-xs text-text-muted">By {article.author}</p>}
               </div>
             ))}
           </div>
         </div>
 
         {/* Video Section */}
-        <div className="mb-8 pb-8 border-b border-white/10">
-          <h2 className="font-serif text-2xl font-bold mb-4">Featured Video</h2>
+        <div className="mb-8 pb-8 border-b border-glass-border">
+          <h2 className="font-serif text-2xl font-bold mb-4 text-text-primary">Featured Video</h2>
           <div className="grid grid-cols-3 gap-6">
             {newsData.videoStories.map((story) => (
               <div key={story.id}>
-                <div className="relative bg-black aspect-video mb-2">
+                <div className="relative bg-brand-bg aspect-video mb-2 rounded-xl overflow-hidden border border-glass-border">
                   {story.isVideo ? (
                     <video className="w-full h-full object-cover" poster={story.thumbnail} controls>
                       <source src={story.videoUrl} type="video/mp4" />
@@ -243,8 +243,8 @@ const HomeNews = () => {
                     />
                   )}
                 </div>
-                <h4 className="font-serif font-bold mb-1">{story.title}</h4>
-                <p className="text-sm text-gray-400">{story.description}</p>
+                <h4 className="font-serif font-bold mb-1 text-text-primary">{story.title}</h4>
+                <p className="text-sm text-text-secondary">{story.description}</p>
               </div>
             ))}
           </div>
@@ -257,36 +257,36 @@ const HomeNews = () => {
               {newsData.columnNews
                 .filter((_, idx) => idx % 3 === colIndex)
                 .map((article) => (
-                  <div key={article.id} className="pb-6 border-b border-white/10">
-                    <span className="text-xs font-bold uppercase tracking-wide text-cyan-400">
+                  <div key={article.id} className="pb-6 border-b border-glass-border">
+                    <span className="text-xs font-bold uppercase tracking-wide text-brand-primary">
                       {article.category}
                     </span>
-                    <h3 className="font-serif text-xl font-bold my-2">{article.title}</h3>
+                    <h3 className="font-serif text-xl font-bold my-2 text-text-primary">{article.title}</h3>
                     {article.image && (
                       <img
                         src={article.image}
                         alt={article.title}
-                        className="w-full h-48 object-cover my-3"
+                        className="w-full h-48 object-cover my-3 rounded-xl border border-glass-border"
                       />
                     )}
-                    <p className="text-sm text-gray-300">{article.description}</p>
+                    <p className="text-sm text-text-secondary">{article.description}</p>
                     {article.author && (
-                      <p className="text-xs text-gray-500 mt-2">By {article.author}</p>
+                      <p className="text-xs text-text-muted mt-2">By {article.author}</p>
                     )}
                   </div>
                 ))}
 
               {colIndex === 2 && (
-                <div className="bg-slate-900/40 rounded-xl p-6 border border-white/5">
-                  <h4 className="font-bold mb-4 text-sm text-cyan-400 tracking-wider">MOST POPULAR</h4>
-                  <ol className="space-y-3 text-sm">
+                <div className="bg-glass-subtle rounded-xl p-6 border border-glass-border shadow-xl">
+                  <h4 className="font-bold mb-4 text-sm text-brand-primary tracking-wider">MOST POPULAR</h4>
+                  <ol className="space-y-3 text-sm text-text-secondary">
                     {newsData.trendingArticles.map((article, index) => (
                       <li
                         key={article.id}
                         className={
                           index < newsData.trendingArticles.length - 1
-                            ? 'pb-3 border-b border-white/10'
-                            : ''
+                            ? 'pb-3 border-b border-glass-border text-text-primary'
+                            : 'text-text-primary'
                         }
                       >
                         {index + 1}. {article.title}
@@ -300,33 +300,33 @@ const HomeNews = () => {
         </div>
 
         {/* Opinion Section */}
-        <div className="border-t border-white/10 pt-6 mb-8">
-          <h2 className="font-serif text-3xl font-bold mb-6 text-white">Opinion</h2>
+        <div className="border-t border-glass-border pt-6 mb-8">
+          <h2 className="font-serif text-3xl font-bold mb-6 text-text-primary">Opinion</h2>
           <div className="grid grid-cols-2 gap-6">
             <div>
               {newsData.opinionArticles[0].image && (
                 <img
                   src={newsData.opinionArticles[0].image}
                   alt={newsData.opinionArticles[0].title}
-                  className="w-full h-64 object-cover mb-3"
+                  className="w-full h-64 object-cover mb-3 rounded-xl border border-glass-border"
                 />
               )}
-              <h3 className="font-serif text-2xl font-bold mb-2">
+              <h3 className="font-serif text-2xl font-bold mb-2 text-text-primary">
                 {newsData.opinionArticles[0].title}
               </h3>
-              <p className="text-gray-300 mb-2">{newsData.opinionArticles[0].description}</p>
-              <p className="text-sm text-gray-300">By {newsData.opinionArticles[0].author}</p>
+              <p className="text-text-secondary mb-2">{newsData.opinionArticles[0].description}</p>
+              <p className="text-sm text-text-muted">By {newsData.opinionArticles[0].author}</p>
             </div>
 
             <div>
               {newsData.opinionArticles.slice(1).map((article, index) => (
                 <div
                   key={article.id}
-                  className={index > 0 ? 'pt-4 border-t border-white/10 mt-4' : ''}
+                  className={index > 0 ? 'pt-4 border-t border-glass-border mt-4' : ''}
                 >
-                  <h3 className="font-serif text-2xl font-bold mb-2">{article.title}</h3>
-                  <p className="text-gray-300 mb-2">{article.description}</p>
-                  <p className="text-sm text-gray-400">By {article.author}</p>
+                  <h3 className="font-serif text-2xl font-bold mb-2 text-text-primary">{article.title}</h3>
+                  <p className="text-text-secondary mb-2">{article.description}</p>
+                  <p className="text-sm text-text-muted">By {article.author}</p>
                 </div>
               ))}
             </div>

@@ -5,11 +5,11 @@ import { TitleBar } from '@renderer/components/TitleBar';
 
 export const MainLayout = () => {
   return (
-    <div className="flex flex-col h-screen w-screen overflow-hidden bg-transparent">
+    <div className="flex flex-col h-screen w-screen overflow-hidden bg-brand-bg/95 text-text-primary">
       <TitleBar />
       <div className="flex flex-1 overflow-hidden">
         {/* Render the Sidebar */}
-        <div className="w-16 md:w-64 border-r border-white/10 bg-black/20 backdrop-blur-2xl shrink-0 transition-all duration-300">
+        <div className="w-16 md:w-64 border-r border-glass-border bg-glass-subtle backdrop-blur-2xl shrink-0 transition-all duration-300">
           <ServerSidebar />
         </div>
         

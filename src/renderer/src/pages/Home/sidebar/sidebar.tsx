@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
-import { Home, List, Layers, Settings, LogOut, User2 } from 'lucide-react'
+import { Home, List, Layers, Settings, LogOut, User2, GalleryThumbnails } from 'lucide-react'
 import { useAppSelector } from '@renderer/redux/hook'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '@renderer/redux/store'
@@ -14,7 +14,7 @@ const ServerSidebar = () => {
   const navItems = [
     { id: 'dashboard', icon: Home, label: 'Dashboard', path: '/' },
     { id: 'list', icon: List, label: 'List', path: '/list' },
-    { id: 'gallerys', icon: Layers, label: 'gallery', path: '/gallery' },
+    { id: 'gallerys', icon: GalleryThumbnails, label: 'gallery', path: '/gallery' },
     { id: 'settings', icon: Settings, label: 'Settings', path: '/settings' }
   ]
 
@@ -37,8 +37,8 @@ const ServerSidebar = () => {
               to={item.path}
               className={`transition-all duration-300 p-3 rounded-2xl flex items-center justify-center ${
                 isActive 
-                  ? 'bg-cyan-500/20 text-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.2)]' 
-                  : 'text-slate-400 hover:text-white hover:bg-white/10'
+                  ? 'bg-brand-primary/20 text-brand-primary shadow-[0_0_15px_rgba(6,182,212,0.2)]' 
+                  : 'text-text-secondary hover:text-text-primary hover:bg-glass-light'
               }`}
               aria-label={item.label}
               title={item.label}
@@ -54,7 +54,7 @@ const ServerSidebar = () => {
         {!user ? (
           <Link
             to="/auth/login"
-            className="p-3 rounded-2xl text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-300 flex items-center justify-center"
+            className="p-3 rounded-2xl text-text-secondary hover:text-text-primary hover:bg-glass-light transition-all duration-300 flex items-center justify-center"
             aria-label="Login"
             title="Login"
           >
@@ -63,7 +63,7 @@ const ServerSidebar = () => {
         ) : (
           <button
             onClick={handleLogout}
-            className="p-3 rounded-2xl text-slate-400 hover:text-red-400 hover:bg-red-500/20 transition-all duration-300 flex items-center justify-center"
+            className="p-3 rounded-2xl text-text-secondary hover:text-red-400 hover:bg-red-500/20 transition-all duration-300 flex items-center justify-center"
             aria-label="Logout"
             title="Logout"
           >

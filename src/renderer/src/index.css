@@ -1,5 +1,18 @@
 @import 'tailwindcss';
 
+@theme {
+  --color-brand-bg: #0f0f11;
+  --color-glass-light: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.10);
+  --color-glass-subtle: rgba(255, 255, 255, 0.03);
+  --color-brand-primary: #06b6d4;
+  --color-brand-primary-light: #22d3ee;
+  --color-brand-secondary: #3b82f6;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #9ca3af;
+  --color-text-muted: #6b7280;
+}
+
 :root {
   background-color: transparent !important;
 }

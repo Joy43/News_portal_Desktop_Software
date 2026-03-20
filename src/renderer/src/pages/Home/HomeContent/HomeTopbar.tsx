@@ -27,7 +27,7 @@ const HomeTopbar = () => {
 
   return (
     <div className="w-full">
-      <div className="w-full z-40 bg-slate-900/30 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl mt-4 drag-region">
+      <div className="w-full z-40 bg-glass-subtle backdrop-blur-xl border border-glass-border rounded-2xl shadow-xl mt-4 drag-region">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 no-drag">
           <div className="flex items-center justify-between h-16">
            
@@ -39,7 +39,7 @@ const HomeTopbar = () => {
                   onClick={() => {
                     setSignInOpen(true)
                   }}
-                  className="hidden sm:block bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded text-sm transition-colors duration-200 font-medium"
+                  className="hidden sm:block bg-brand-primary hover:bg-brand-primary-light text-brand-bg px-4 py-2 rounded text-sm transition-colors duration-200 font-medium"
                 >
                   Sign In
                 </button>
@@ -54,7 +54,7 @@ const HomeTopbar = () => {
                         : 'https://res.cloudinary.com/dkqdwcguu/image/upload/c_crop,w_1220,h_518/v1754275277/joy_img_3_ony3do.jpg'
                     }
                     alt="User"
-                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-slate-600 hover:border-blue-500 transition-colors cursor-pointer"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-glass-border hover:border-brand-primary transition-colors cursor-pointer"
                     onClick={() => {
                       handleUserButtonClick()
                     }}
@@ -63,12 +63,12 @@ const HomeTopbar = () => {
                   {/* Name + Role - Hidden on small screens */}
                   <div className="hidden md:block">
                     <div className="flex items-center gap-2">
-                      <span className="text-white font-medium text-sm lg:text-base">
+                      <span className="text-text-primary font-medium text-sm lg:text-base">
                         {user?.fullName || 'User'}
                       </span>
-                      <span className="text-slate-400 text-xs">▼</span>
+                      <span className="text-text-secondary text-xs">▼</span>
                     </div>
-                    <span className="text-slate-400 text-xs capitalize">
+                    <span className="text-text-secondary text-xs capitalize">
                       {user?.role || 'User'}
                     </span>
                   </div>
@@ -80,23 +80,23 @@ const HomeTopbar = () => {
             <div className="flex items-center gap-3 sm:gap-6">
               {/* Date Section - Hidden on mobile */}
               <div className="hidden sm:flex items-center gap-2">
-                <span className="text-white text-sm lg:text-base font-medium">27 May</span>
-                <span className="text-slate-400 text-sm lg:text-base">2025</span>
+                <span className="text-text-primary text-sm lg:text-base font-medium">27 May</span>
+                <span className="text-text-secondary text-sm lg:text-base">2025</span>
               </div>
 
               {/* Icons Section */}
               <div className="flex items-center gap-3 sm:gap-4">
                 {/* Mail Icon - Hidden on mobile, only show when logged in */}
                 {user && (
-                  <button className="hidden sm:block p-2 rounded-lg hover:bg-white/10 transition-colors">
-                    <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-slate-400 hover:text-white transition-colors" />
+                  <button className="hidden sm:block p-2 rounded-lg hover:bg-glass-light transition-colors">
+                    <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-text-secondary hover:text-text-primary transition-colors" />
                   </button>
                 )}
 
                 {/* Notification Bell - Only show when logged in */}
                 {user && (
-                  <button className="p-2 rounded-lg hover:bg-white/10 transition-colors relative">
-                    <Bell className="w-5 h-5 sm:w-6 sm:h-6 text-slate-400 hover:text-white transition-colors" />
+                  <button className="p-2 rounded-lg hover:bg-glass-light transition-colors relative">
+                    <Bell className="w-5 h-5 sm:w-6 sm:h-6 text-text-secondary hover:text-text-primary transition-colors" />
                     {/* Optional notification badge */}
                     <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
                   </button>
@@ -112,7 +112,7 @@ const HomeTopbar = () => {
                   onClick={() => {
                     setSignInOpen(true)
                   }}
-                  className="sm:hidden bg-blue-500 hover:bg-blue-600 text-white px-3 py-1.5 rounded text-xs transition-colors duration-200 font-medium"
+                  className="sm:hidden bg-brand-primary hover:bg-brand-primary-light text-brand-bg px-3 py-1.5 rounded text-xs transition-colors duration-200 font-medium"
                 >
                   Sign In
                 </button>
